@@ -8,16 +8,10 @@ language: python
 python: 3.8.5
 
 # Install the codecov pip dependency
-install:
-#  - pip install codecov
+# install:
 
 # Run the unit test
 script:
-  - pytest
-#  - coverage run array_problems\tests.py
-#  - coverage run easy_problems\tests.py
-#  - coverage run medium_problems\tests.py
-
-# Push the results back to codecov
-after_success:
-  - codecov
+  - python easy_problems/tests
+  - python medium_problems/tests
+  - python array_problems/tests
