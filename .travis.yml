@@ -5,15 +5,14 @@ language: python
 python: 3.8.5
 
 # Install the codecov pip dependency
-# install:
-before_install:
-  - sudo apt-get -y install ant-optional
+install:
+  - pip install coverage
 
 # Run the unit test
 script:
-  - python easy_problems/tests.py
-  - python medium_problems/tests.py
-  - python array_problems/tests.py
+  - coverage run easy_problems/tests.py
+  - coverage run medium_problems/tests.py
+  - coverage run array_problems/tests.py
 
 
 after_success:
