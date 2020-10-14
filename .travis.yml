@@ -12,7 +12,7 @@ install:
 script:
   - coverage run easy_problems/tests.py
   - coverage run medium_problems/tests.py
-  - coverage run array_problems/tests.py
+#  - coverage run array_problems/tests.py
 
 
 after_success:
