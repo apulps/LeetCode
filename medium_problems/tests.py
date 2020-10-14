@@ -1,6 +1,7 @@
 import unittest
 from subrectangle_queries import SubrectangleQueries
 from group_the_people import group_the_people
+from max_increase_keeping_skyline import max_increase_keeping_skyline
 
 
 class TestMediumProblems(unittest.TestCase):
@@ -45,6 +46,21 @@ class TestMediumProblems(unittest.TestCase):
         group_sizes = [2,1,3,3,3,2]
         result = group_the_people(group_sizes)
         self.assertEqual(result, [[0,5],[1],[2,3,4]])
+
+    
+    def test_max_increase_keeping_skyline(self):
+        grid = [[3,0,8,4],[2,4,5,7],[9,2,6,3],[0,3,1,0]]
+        result = max_increase_keeping_skyline(grid)
+        self.assertEqual(result, 35)
+
+        grid = [[5,1,4],[0,2,3],[7,1,9]]
+        result = max_increase_keeping_skyline(grid)
+        self.assertEqual(result, 6)
+
+        grid = [[1,4,2,7,9],[8,3,5,7,4],[5,9,2,3,2],[3,8,1,5,1],[6,9,2,9,0]]
+        result = max_increase_keeping_skyline(grid)
+        self.assertEqual(result, 79)
+
 
 
 if __name__ == '__main__':
