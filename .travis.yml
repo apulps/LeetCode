@@ -10,9 +10,7 @@ install:
 
 # Run the unit test
 script:
-  - coverage run easy_problems/tests.py
-  - coverage run medium_problems/tests.py
-#  - coverage run array_problems/tests.py
+  - coverage run tests.py
 
 
 after_success:
