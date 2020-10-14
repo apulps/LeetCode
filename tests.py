@@ -9,7 +9,7 @@ from easy_problems.shuffle import shuffle
 from easy_problems.num_identical_pairs import num_identical_pairs
 from easy_problems.defang_IP_addr import defang_IP_addr
 from easy_problems.num_jewels_in_stones import num_jewels_in_stones, num_jewels_in_stones_2
-from easy_problems.number_of_steps import number_of_steps
+from easy_problems.number_of_steps import number_of_steps, number_of_steps_2
 from easy_problems.shuffle_array import shuffle_array
 from easy_problems.smaller_numbers_than_current import smaller_numbers_than_current
 from easy_problems.subtract_product_and_sum import subtract_product_and_sum
@@ -37,6 +37,11 @@ class TestArrayProblems(unittest.TestCase):
         result = remove_duplicates(nums)
         self.assertEqual(result, 1)
         self.assertEqual(nums, [1])
+
+        nums = []
+        result = remove_duplicates(nums)
+        self.assertEqual(result, 0)
+
     
     def test_remove_duplicates_2(self):
         nums = [1,1,2]
@@ -211,6 +216,10 @@ class TestEasyProblems(unittest.TestCase):
         result = num_identical_pairs(nums)
         self.assertEqual(result, 0)
 
+        nums = []
+        result = num_identical_pairs(nums)
+        self.assertEqual(result, 0)
+
     
     def test_defang_IP_addr(self):
         address = "1.1.1.1"
@@ -256,6 +265,19 @@ class TestEasyProblems(unittest.TestCase):
 
         num = 123
         result = number_of_steps(num)
+        self.assertEqual(result, 12)
+
+    def test_number_of_steps_2(self):
+        num = 14
+        result = number_of_steps_2(num)
+        self.assertEqual(result, 6)
+
+        num = 8
+        result = number_of_steps_2(num)
+        self.assertEqual(result, 4)
+
+        num = 123
+        result = number_of_steps_2(num)
         self.assertEqual(result, 12)
 
     
