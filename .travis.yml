@@ -6,6 +6,8 @@ python: 3.8.5
 
 # Install the codecov pip dependency
 # install:
+before_install:
+  - sudo apt-get -y install ant-optional
 
 # Run the unit test
 script:
