@@ -19,6 +19,7 @@ from easy_problems.max_depth import max_depth
 from medium_problems.subrectangle_queries import SubrectangleQueries
 from medium_problems.group_the_people import group_the_people
 from medium_problems.max_increase_keeping_skyline import max_increase_keeping_skyline
+from medium_problems.get_target_copy import TreeNode, Solution
 
 
 class TestArrayProblems(unittest.TestCase):
@@ -425,7 +426,6 @@ class TestMediumProblems(unittest.TestCase):
         result = subrectangle_queries.get_value(2,0)
         self.assertEqual(result, 7)
 
-
     
     def test_group_the_people(self):
         group_sizes = [3,3,3,3,3,1,3]
@@ -449,6 +449,65 @@ class TestMediumProblems(unittest.TestCase):
         grid = [[1,4,2,7,9],[8,3,5,7,4],[5,9,2,3,2],[3,8,1,5,1],[6,9,2,9,0]]
         result = max_increase_keeping_skyline(grid)
         self.assertEqual(result, 79)
+
+
+    def test_get_target_copy(self):
+        s = Solution()
+        tree = TreeNode(7)
+        tree.right = TreeNode(3)
+        tree.left = TreeNode(4)
+        tree.right.right = TreeNode(19)
+        tree.right.left = TreeNode(6)
+        cloned = tree
+        target = TreeNode(3)
+        result = s.get_target_copy(tree, cloned, target)
+        #self.assertEqual(result, target)
+        assert result is cloned.right
+
+        tree = TreeNode(7)
+        cloned = tree
+        target = TreeNode(7)
+        result = s.get_target_copy(tree, cloned, target)
+        #self.assertEqual(result, target)
+        assert result is cloned
+
+        tree = TreeNode(8)
+        tree.right = TreeNode(6)
+        tree.right.right = TreeNode(5)
+        tree.right.right.right = TreeNode(4)
+        tree.right.right.right.right = TreeNode(3)
+        tree.right.right.right.right.right = TreeNode(2)
+        tree.right.right.right.right.right.right = TreeNode(1)
+        cloned = tree
+        target = TreeNode(4)
+        result = s.get_target_copy(tree, cloned, target)
+        #self.assertEqual(result, target)
+        assert result is cloned.right.right.right
+
+        tree = TreeNode(1)
+        tree.right = TreeNode(3)
+        tree.left = TreeNode(2)
+        tree.right.right = TreeNode(7)
+        tree.right.left = TreeNode(6)
+        tree.left.right = TreeNode(5)
+        tree.left.left = TreeNode(4)
+        tree.left.left.right = TreeNode(9)
+        tree.left.left.left = TreeNode(8)
+        tree.left.right.left = TreeNode(10)
+        cloned = tree
+        target = TreeNode(5)
+        result = s.get_target_copy(tree, cloned, target)
+        #self.assertEqual(result, target)
+        assert result is cloned.left.right
+
+        tree = TreeNode(1)
+        tree.left = TreeNode(2)
+        tree.left.left = TreeNode(3)
+        cloned = tree
+        target = TreeNode(2)
+        result = s.get_target_copy(tree, cloned, target)
+        #self.assertEqual(result, target)
+        assert result is cloned.left
 
 
 
