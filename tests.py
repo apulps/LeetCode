@@ -20,6 +20,7 @@ from medium_problems.subrectangle_queries import SubrectangleQueries
 from medium_problems.group_the_people import group_the_people
 from medium_problems.max_increase_keeping_skyline import max_increase_keeping_skyline
 from medium_problems.get_target_copy import TreeNode, Solution
+from medium_problems.deepest_leaves_sum import TreeNode, deepest_leaves_sum
 
 
 class TestArrayProblems(unittest.TestCase):
@@ -461,14 +462,12 @@ class TestMediumProblems(unittest.TestCase):
         cloned = tree
         target = TreeNode(3)
         result = s.get_target_copy(tree, cloned, target)
-        #self.assertEqual(result, target)
         assert result is cloned.right
 
         tree = TreeNode(7)
         cloned = tree
         target = TreeNode(7)
         result = s.get_target_copy(tree, cloned, target)
-        #self.assertEqual(result, target)
         assert result is cloned
 
         tree = TreeNode(8)
@@ -481,7 +480,6 @@ class TestMediumProblems(unittest.TestCase):
         cloned = tree
         target = TreeNode(4)
         result = s.get_target_copy(tree, cloned, target)
-        #self.assertEqual(result, target)
         assert result is cloned.right.right.right
 
         tree = TreeNode(1)
@@ -497,7 +495,6 @@ class TestMediumProblems(unittest.TestCase):
         cloned = tree
         target = TreeNode(5)
         result = s.get_target_copy(tree, cloned, target)
-        #self.assertEqual(result, target)
         assert result is cloned.left.right
 
         tree = TreeNode(1)
@@ -506,8 +503,41 @@ class TestMediumProblems(unittest.TestCase):
         cloned = tree
         target = TreeNode(2)
         result = s.get_target_copy(tree, cloned, target)
-        #self.assertEqual(result, target)
         assert result is cloned.left
+    
+
+    def test_deepest_leaves_sum(self):
+        tree = TreeNode(1)
+        tree.right = TreeNode(3)
+        tree.left = TreeNode(2)
+        tree.right.right = TreeNode(6)
+        tree.left.right = TreeNode(5)
+        tree.left.left = TreeNode(4)
+        tree.left.left.left = TreeNode(7)
+        tree.right.right.right = TreeNode(8)
+        result = deepest_leaves_sum(tree)
+        self.assertEqual(result, 15)
+
+        tree = TreeNode(1)
+        tree.right = TreeNode(3)
+        tree.left = TreeNode(2)
+        tree.right.right = TreeNode(6)
+        tree.left.right = TreeNode(5)
+        tree.left.left = TreeNode(4)
+        result = deepest_leaves_sum(tree)
+        self.assertEqual(result, 15)
+
+        tree = TreeNode(3)
+        tree.right = TreeNode(5)
+        tree.left = TreeNode(2)
+        tree.right.right = TreeNode(8)
+        tree.left.left = TreeNode(1)
+        result = deepest_leaves_sum(tree)
+        self.assertEqual(result, 9)
+
+        tree = None
+        result = deepest_leaves_sum(tree)
+        self.assertEqual(result, 0)
 
 
 
