@@ -11,28 +11,18 @@ Follow up: Solve the problem if repeated values on the tree are allowed.
 """
 
 
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+def get_target_copy(original, cloned, target):
+    result = None
 
+    if original.val == target.val:
+        return cloned
 
+    if original.right:
+        result = get_target_copy(original.right, cloned.right, target)
+        if result is not None and result.val == target.val:
+            return result
 
-class Solution:
-    def get_target_copy(self, original, cloned, target):
-        result = None
-
-        if original.val == target.val:
-            return cloned
-
-        if original.right:
-            result = self.get_target_copy(original.right, cloned.right, target)
-            if result is not None and result.val == target.val:
-                return result
-
-        if original.left:
-            result = self.get_target_copy(original.left, cloned.left, target)
-            if result is not None and result.val == target.val:
-                return result
+    if original.left:
+        result = get_target_copy(original.left, cloned.left, target)
+        if result is not None and result.val == target.val:
+            return result

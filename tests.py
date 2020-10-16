@@ -19,8 +19,9 @@ from easy_problems.max_depth import max_depth
 from medium_problems.subrectangle_queries import SubrectangleQueries
 from medium_problems.group_the_people import group_the_people
 from medium_problems.max_increase_keeping_skyline import max_increase_keeping_skyline
-from medium_problems.get_target_copy import TreeNode, Solution
-from medium_problems.deepest_leaves_sum import TreeNode, deepest_leaves_sum
+from medium_problems.get_target_copy import get_target_copy
+from medium_problems.deepest_leaves_sum import deepest_leaves_sum
+from medium_problems.problems_data_structures import TreeNode
 
 
 class TestArrayProblems(unittest.TestCase):
@@ -453,7 +454,6 @@ class TestMediumProblems(unittest.TestCase):
 
 
     def test_get_target_copy(self):
-        s = Solution()
         tree = TreeNode(7)
         tree.right = TreeNode(3)
         tree.left = TreeNode(4)
@@ -461,13 +461,13 @@ class TestMediumProblems(unittest.TestCase):
         tree.right.left = TreeNode(6)
         cloned = tree
         target = TreeNode(3)
-        result = s.get_target_copy(tree, cloned, target)
+        result = get_target_copy(tree, cloned, target)
         assert result is cloned.right
 
         tree = TreeNode(7)
         cloned = tree
         target = TreeNode(7)
-        result = s.get_target_copy(tree, cloned, target)
+        result = get_target_copy(tree, cloned, target)
         assert result is cloned
 
         tree = TreeNode(8)
@@ -479,7 +479,7 @@ class TestMediumProblems(unittest.TestCase):
         tree.right.right.right.right.right.right = TreeNode(1)
         cloned = tree
         target = TreeNode(4)
-        result = s.get_target_copy(tree, cloned, target)
+        result = get_target_copy(tree, cloned, target)
         assert result is cloned.right.right.right
 
         tree = TreeNode(1)
@@ -494,7 +494,7 @@ class TestMediumProblems(unittest.TestCase):
         tree.left.right.left = TreeNode(10)
         cloned = tree
         target = TreeNode(5)
-        result = s.get_target_copy(tree, cloned, target)
+        result = get_target_copy(tree, cloned, target)
         assert result is cloned.left.right
 
         tree = TreeNode(1)
@@ -502,7 +502,7 @@ class TestMediumProblems(unittest.TestCase):
         tree.left.left = TreeNode(3)
         cloned = tree
         target = TreeNode(2)
-        result = s.get_target_copy(tree, cloned, target)
+        result = get_target_copy(tree, cloned, target)
         assert result is cloned.left
     
 

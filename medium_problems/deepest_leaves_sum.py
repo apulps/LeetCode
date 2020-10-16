@@ -3,15 +3,6 @@ Given a binary tree, return the sum of values of its deepest leaves.
 """
 
 
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-
-
 def deepest_leaves_sum(root):
     """
     Time complexity -> O(n)
