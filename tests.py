@@ -16,6 +16,7 @@ from easy_problems.subtract_product_and_sum import subtract_product_and_sum
 from easy_problems.decompress_RLE_list import decompress_RLE_list
 from easy_problems.max_depth import max_depth
 from easy_problems.create_target_array import create_target_array, create_target_array_2
+from easy_problems.xor_operation import xor_operation
 
 from medium_problems.subrectangle_queries import SubrectangleQueries
 from medium_problems.group_the_people import group_the_people
@@ -394,6 +395,28 @@ class TestEasyProblems(unittest.TestCase):
         index = [0]
         result = create_target_array_2(nums, index)
         self.assertEqual(result, [1])
+
+
+    def test_xor_operation(self):
+        n = 5
+        start = 0
+        result = xor_operation(n, start)
+        self.assertEqual(result, 8)
+
+        n = 4
+        start = 3
+        result = xor_operation(n, start)
+        self.assertEqual(result, 8)
+
+        n = 1
+        start = 7
+        result = xor_operation(n, start)
+        self.assertEqual(result, 7)
+
+        n = 10
+        start = 5
+        result = xor_operation(n, start)
+        self.assertEqual(result, 2)
 
 
 
