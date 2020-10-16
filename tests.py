@@ -15,6 +15,7 @@ from easy_problems.smaller_numbers_than_current import smaller_numbers_than_curr
 from easy_problems.subtract_product_and_sum import subtract_product_and_sum
 from easy_problems.decompress_RLE_list import decompress_RLE_list
 from easy_problems.max_depth import max_depth
+from easy_problems.create_target_array import create_target_array, create_target_array_2
 
 from medium_problems.subrectangle_queries import SubrectangleQueries
 from medium_problems.group_the_people import group_the_people
@@ -360,6 +361,39 @@ class TestEasyProblems(unittest.TestCase):
         s = "1"
         result = max_depth(s)
         self.assertEqual(result, 0)
+
+    
+    def test_create_target_array(self):
+        nums = [0,1,2,3,4]
+        index = [0,1,2,2,1]
+        result = create_target_array(nums, index)
+        self.assertEqual(result, [0,4,1,3,2])
+
+        nums = [1,2,3,4,0]
+        index = [0,1,2,3,0]
+        result = create_target_array(nums, index)
+        self.assertEqual(result, [0,1,2,3,4])
+
+        nums = [1]
+        index = [0]
+        result = create_target_array(nums, index)
+        self.assertEqual(result, [1])
+    
+    def test_create_target_array_2(self):
+        nums = [0,1,2,3,4]
+        index = [0,1,2,2,1]
+        result = create_target_array_2(nums, index)
+        self.assertEqual(result, [0,4,1,3,2])
+
+        nums = [1,2,3,4,0]
+        index = [0,1,2,3,0]
+        result = create_target_array_2(nums, index)
+        self.assertEqual(result, [0,1,2,3,4])
+
+        nums = [1]
+        index = [0]
+        result = create_target_array_2(nums, index)
+        self.assertEqual(result, [1])
 
 
 
