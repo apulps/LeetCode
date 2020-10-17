@@ -17,6 +17,7 @@ from easy_problems.decompress_RLE_list import decompress_RLE_list
 from easy_problems.max_depth import max_depth
 from easy_problems.create_target_array import create_target_array, create_target_array_2
 from easy_problems.xor_operation import xor_operation
+from easy_problems.parking_system import ParkingSystem
 
 from medium_problems.subrectangle_queries import SubrectangleQueries
 from medium_problems.group_the_people import group_the_people
@@ -417,6 +418,16 @@ class TestEasyProblems(unittest.TestCase):
         start = 5
         result = xor_operation(n, start)
         self.assertEqual(result, 2)
+
+    
+    def test_parking_system(self):
+        parking_system = ParkingSystem(1, 1, 0)
+        self.assertTrue(parking_system.add_car(1))
+        self.assertTrue(parking_system.add_car(2))
+        self.assertFalse(parking_system.add_car(3))
+        self.assertFalse(parking_system.add_car(1))
+
+        self.assertRaises(ValueError, parking_system.add_car, 4)
 
 
 
