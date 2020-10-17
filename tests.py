@@ -427,6 +427,9 @@ class TestEasyProblems(unittest.TestCase):
         self.assertFalse(parking_system.add_car(3))
         self.assertFalse(parking_system.add_car(1))
 
+        parking_system = ParkingSystem(0, 0, 1)
+        self.assertTrue(parking_system.add_car(3))
+
         self.assertRaises(ValueError, parking_system.add_car, 4)
 
 
