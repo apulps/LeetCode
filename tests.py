@@ -19,6 +19,7 @@ from easy_problems.create_target_array import create_target_array, create_target
 from easy_problems.xor_operation import xor_operation
 from easy_problems.parking_system import ParkingSystem
 from easy_problems.reverse_string import reverse_string, reverse_string_2
+from easy_problems.depth_of_binary_tree import depth_of_binary_tree
 
 from medium_problems.subrectangle_queries import SubrectangleQueries
 from medium_problems.group_the_people import group_the_people
@@ -451,6 +452,28 @@ class TestEasyProblems(unittest.TestCase):
         s = ['a','b','c','d','e']
         reverse_string_2(s)
         self.assertEqual(s, ['e','d','c','b','a'])
+
+    
+    def test_depth_of_binary_tree(self):
+        root = TreeNode(3)
+        root.left = TreeNode(9)
+        root.right = TreeNode(20)
+        root.right.left = TreeNode(15)
+        root.right.right = TreeNode(7)
+        result = depth_of_binary_tree(root)
+        self.assertEqual(result, 3)
+
+        root = TreeNode(8)
+        root.left = TreeNode(6)
+        root.right = TreeNode(10)
+        root.right.left = TreeNode(5)
+        root.right.right = TreeNode(15)
+        root.left.left = TreeNode(2)
+        root.left.right = TreeNode(7)
+        root.left.right.left = TreeNode(4)
+        root.left.right.right = TreeNode(21)
+        result = depth_of_binary_tree(root)
+        self.assertEqual(result, 4)
 
 
 
