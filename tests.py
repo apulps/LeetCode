@@ -18,6 +18,7 @@ from easy_problems.max_depth import max_depth
 from easy_problems.create_target_array import create_target_array, create_target_array_2
 from easy_problems.xor_operation import xor_operation
 from easy_problems.parking_system import ParkingSystem
+from easy_problems.reverse_string import reverse_string, reverse_string_2
 
 from medium_problems.subrectangle_queries import SubrectangleQueries
 from medium_problems.group_the_people import group_the_people
@@ -431,6 +432,25 @@ class TestEasyProblems(unittest.TestCase):
         self.assertTrue(parking_system.add_car(3))
 
         self.assertRaises(ValueError, parking_system.add_car, 4)
+
+    
+    def test_reverse_string(self):
+        s = ['h','e','l','l','o']
+        reverse_string(s)
+        self.assertEqual(s, ['o','l','l','e','h'])
+
+        s = ['a','b','c','d','e']
+        reverse_string(s)
+        self.assertEqual(s, ['e','d','c','b','a'])
+
+    def test_reverse_string_2(self):
+        s = ['h','e','l','l','o']
+        reverse_string_2(s)
+        self.assertEqual(s, ['o','l','l','e','h'])
+
+        s = ['a','b','c','d','e']
+        reverse_string_2(s)
+        self.assertEqual(s, ['e','d','c','b','a'])
 
 
 
