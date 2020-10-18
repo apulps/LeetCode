@@ -27,7 +27,8 @@ from medium_problems.group_the_people import group_the_people
 from medium_problems.max_increase_keeping_skyline import max_increase_keeping_skyline
 from medium_problems.get_target_copy import get_target_copy
 from medium_problems.deepest_leaves_sum import deepest_leaves_sum
-from medium_problems.problems_data_structures import TreeNode
+
+from assets.problems_data_structures import TreeNode
 
 
 class TestArrayProblems(unittest.TestCase):
