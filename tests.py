@@ -20,6 +20,7 @@ from easy_problems.xor_operation import xor_operation
 from easy_problems.parking_system import ParkingSystem
 from easy_problems.reverse_string import reverse_string, reverse_string_2
 from easy_problems.depth_of_binary_tree import depth_of_binary_tree
+from easy_problems.single_number import single_number, single_number_2 ,single_number_3, single_number_4
 
 from medium_problems.subrectangle_queries import SubrectangleQueries
 from medium_problems.group_the_people import group_the_people
@@ -474,6 +475,59 @@ class TestEasyProblems(unittest.TestCase):
         root.left.right.right = TreeNode(21)
         result = depth_of_binary_tree(root)
         self.assertEqual(result, 4)
+
+    
+    def test_single_number(self):
+        nums = [2,2,1]
+        result = single_number(nums)
+        self.assertEqual(result, 1)
+        
+        nums = [4,1,2,1,2]
+        result = single_number(nums)
+        self.assertEqual(result, 4)
+
+        nums = [1]
+        result = single_number(nums)
+        self.assertEqual(result, 1)
+
+    def test_single_number_2(self):
+        nums = [2,2,1]
+        result = single_number_2(nums)
+        self.assertEqual(result, 1)
+        
+        nums = [4,1,2,1,2]
+        result = single_number_2(nums)
+        self.assertEqual(result, 4)
+
+        nums = [1]
+        result = single_number_2(nums)
+        self.assertEqual(result, 1)
+
+    def test_single_number_3(self):
+        nums = [2,2,1]
+        result = single_number_3(nums)
+        self.assertEqual(result, 1)
+        
+        nums = [4,1,2,1,2]
+        result = single_number_3(nums)
+        self.assertEqual(result, 4)
+
+        nums = [1]
+        result = single_number_3(nums)
+        self.assertEqual(result, 1)
+
+    def test_single_number_4(self):
+        nums = [2,2,1]
+        result = single_number_4(nums)
+        self.assertEqual(result, 1)
+        
+        nums = [4,1,2,1,2]
+        result = single_number_4(nums)
+        self.assertEqual(result, 4)
+
+        nums = [1]
+        result = single_number_4(nums)
+        self.assertEqual(result, 1)
 
 
 
