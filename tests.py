@@ -21,6 +21,7 @@ from easy_problems.parking_system import ParkingSystem
 from easy_problems.reverse_string import reverse_string, reverse_string_2
 from easy_problems.depth_of_binary_tree import depth_of_binary_tree
 from easy_problems.single_number import single_number, single_number_2 ,single_number_3, single_number_4
+from easy_problems.delete_node_linked_list import delete_node_linked_list
 
 from medium_problems.subrectangle_queries import SubrectangleQueries
 from medium_problems.group_the_people import group_the_people
@@ -28,7 +29,7 @@ from medium_problems.max_increase_keeping_skyline import max_increase_keeping_sk
 from medium_problems.get_target_copy import get_target_copy
 from medium_problems.deepest_leaves_sum import deepest_leaves_sum
 
-from assets.problems_data_structures import TreeNode
+from assets.problems_data_structures import TreeNode, LinkedList
 
 
 class TestArrayProblems(unittest.TestCase):
@@ -529,6 +530,38 @@ class TestEasyProblems(unittest.TestCase):
         nums = [1]
         result = single_number_4(nums)
         self.assertEqual(result, 1)
+    
+
+    def test_delete_node_linked_list(self):
+        head = LinkedList(4)
+        head.next = LinkedList(5)
+        head.next.next = LinkedList(1)
+        head.next.next.next = LinkedList(9)
+        delete_node_linked_list(head) # remove 4
+        self.assertEqual(head.val, 5)
+        self.assertEqual(head.next.val, 1)
+        self.assertEqual(head.next.next.val, 9)
+        self.assertEqual(head.next.next.next, None)
+
+        head = LinkedList(4)
+        head.next = LinkedList(5)
+        head.next.next = LinkedList(1)
+        head.next.next.next = LinkedList(9)
+        delete_node_linked_list(head.next) # remove 5
+        self.assertEqual(head.val, 4)
+        self.assertEqual(head.next.val, 1)
+        self.assertEqual(head.next.next.val, 9)
+        self.assertEqual(head.next.next.next, None)
+
+        head = LinkedList(4)
+        head.next = LinkedList(5)
+        head.next.next = LinkedList(1)
+        head.next.next.next = LinkedList(9)
+        delete_node_linked_list(head.next.next) # remove 1
+        self.assertEqual(head.val, 4)
+        self.assertEqual(head.next.val, 5)
+        self.assertEqual(head.next.next.val, 9)
+        self.assertEqual(head.next.next.next, None)
 
 
 
