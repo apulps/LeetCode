@@ -22,6 +22,7 @@ from easy_problems.reverse_string import reverse_string, reverse_string_2
 from easy_problems.depth_of_binary_tree import depth_of_binary_tree
 from easy_problems.single_number import single_number, single_number_2 ,single_number_3, single_number_4
 from easy_problems.delete_node_linked_list import delete_node_linked_list
+from easy_problems.reverse_linkedlist import reverse_linkedlist
 
 from medium_problems.subrectangle_queries import SubrectangleQueries
 from medium_problems.group_the_people import group_the_people
@@ -562,6 +563,30 @@ class TestEasyProblems(unittest.TestCase):
         self.assertEqual(head.next.val, 5)
         self.assertEqual(head.next.next.val, 9)
         self.assertEqual(head.next.next.next, None)
+
+    
+    def test_reverse_linkedlist(self):
+        head = LinkedList(1)
+        head.next = LinkedList(2)
+        head.next.next = LinkedList(3)
+        head.next.next.next = LinkedList(4)
+        head.next.next.next.next = LinkedList(5)
+        result = reverse_linkedlist(head)
+        self.assertEqual(result.val, 5)
+        self.assertEqual(result.next.val, 4)
+        self.assertEqual(result.next.next.val, 3)
+        self.assertEqual(result.next.next.next.val, 2)
+        self.assertEqual(result.next.next.next.next.val, 1)
+        self.assertEqual(result.next.next.next.next.next, None)
+
+        head = LinkedList(6)
+        head.next = LinkedList(1)
+        head.next.next = LinkedList(9)
+        result = reverse_linkedlist(head)
+        self.assertEqual(result.val, 9)
+        self.assertEqual(result.next.val, 1)
+        self.assertEqual(result.next.next.val, 6)
+        self.assertEqual(result.next.next.next, None)
 
 
 
