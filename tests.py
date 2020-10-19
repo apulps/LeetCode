@@ -23,6 +23,7 @@ from easy_problems.depth_of_binary_tree import depth_of_binary_tree
 from easy_problems.single_number import single_number, single_number_2 ,single_number_3, single_number_4
 from easy_problems.delete_node_linked_list import delete_node_linked_list
 from easy_problems.reverse_linkedlist import reverse_linkedlist
+from easy_problems.fizz_buzz import fizz_buzz
 
 from medium_problems.subrectangle_queries import SubrectangleQueries
 from medium_problems.group_the_people import group_the_people
@@ -587,6 +588,12 @@ class TestEasyProblems(unittest.TestCase):
         self.assertEqual(result.next.val, 1)
         self.assertEqual(result.next.next.val, 6)
         self.assertEqual(result.next.next.next, None)
+    
+
+    def test_fizz_buzz(self):
+        n = 15
+        result = fizz_buzz(n)
+        self.assertEqual(result, ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"])
 
 
 
