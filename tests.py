@@ -31,6 +31,7 @@ from medium_problems.group_the_people import group_the_people
 from medium_problems.max_increase_keeping_skyline import max_increase_keeping_skyline
 from medium_problems.get_target_copy import get_target_copy
 from medium_problems.deepest_leaves_sum import deepest_leaves_sum
+from medium_problems.permute import permute, permute_2
 
 from assets.problems_data_structures import TreeNode, LinkedList
 
@@ -787,6 +788,27 @@ class TestMediumProblems(unittest.TestCase):
         tree = None
         result = deepest_leaves_sum(tree)
         self.assertEqual(result, 0)
+
+    
+    def test_permute(self):
+        nums = [1,2,3]
+        result = permute(nums)
+        self.assertIn([1,2,3], result)
+        self.assertIn([1,3,2], result)
+        self.assertIn([2,1,3], result)
+        self.assertIn([2,3,1], result)
+        self.assertIn([3,1,2], result)
+        self.assertIn([3,2,1], result)
+
+    def test_permute_2(self):
+        nums = [1,2,3]
+        result = permute_2(nums)
+        self.assertIn([1,2,3], result)
+        self.assertIn([1,3,2], result)
+        self.assertIn([2,1,3], result)
+        self.assertIn([2,3,1], result)
+        self.assertIn([3,1,2], result)
+        self.assertIn([3,2,1], result)
 
 
 
