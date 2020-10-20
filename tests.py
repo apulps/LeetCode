@@ -24,6 +24,7 @@ from easy_problems.single_number import single_number, single_number_2 ,single_n
 from easy_problems.delete_node_linked_list import delete_node_linked_list
 from easy_problems.reverse_linkedlist import reverse_linkedlist
 from easy_problems.fizz_buzz import fizz_buzz
+from easy_problems.majority_element import majority_element
 
 from medium_problems.subrectangle_queries import SubrectangleQueries
 from medium_problems.group_the_people import group_the_people
@@ -594,6 +595,20 @@ class TestEasyProblems(unittest.TestCase):
         n = 15
         result = fizz_buzz(n)
         self.assertEqual(result, ["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"])
+    
+
+    def test_majority_element(self):
+        nums = [3,2,3]
+        result = majority_element(nums)
+        self.assertEqual(result, 3)
+
+        nums = [2,2,1,1,1,2,2]
+        result = majority_element(nums)
+        self.assertEqual(result, 2)
+
+        nums = [3,3,4]
+        result = majority_element(nums)
+        self.assertEqual(result, 3)
 
 
 
