@@ -33,6 +33,7 @@ from medium_problems.max_increase_keeping_skyline import max_increase_keeping_sk
 from medium_problems.get_target_copy import get_target_copy
 from medium_problems.deepest_leaves_sum import deepest_leaves_sum
 from medium_problems.permute import permute, permute_2
+from medium_problems.inorder_traversal import inorder_traversal, inorder_traversal_2
 
 from assets.problems_data_structures import TreeNode, LinkedList
 
@@ -822,6 +823,70 @@ class TestMediumProblems(unittest.TestCase):
         self.assertIn([3,1,2], result)
         self.assertIn([3,2,1], result)
 
+    
+    def test_inorder_traversal(self):
+        root = TreeNode(1)
+        root.left = TreeNode(2)
+        result = inorder_traversal(root)
+        self.assertEqual(result, [2,1])
+
+        root = TreeNode(1)
+        root.left = TreeNode(2)
+        root.right = TreeNode(3)
+        root.left.left = TreeNode(4)
+        root.left.right = TreeNode(5)
+        root.right.left = TreeNode(6)
+        root.right.right = TreeNode(7)
+        root.right.left.left = TreeNode(8)
+        root.right.right.right = TreeNode(9)
+        result = inorder_traversal(root)
+        self.assertEqual(result, [4,2,5,1,8,6,3,7,9])
+
+        root = TreeNode(1)
+        root.right = TreeNode(2)
+        root.right.left = TreeNode(3)
+        result = inorder_traversal(root)
+        self.assertEqual(result, [1,3,2])
+
+        root = TreeNode(1)
+        result = inorder_traversal(root)
+        self.assertEqual(result, [1])
+
+        root = None
+        result = inorder_traversal(root)
+        self.assertEqual(result, [])
+
+    def test_inorder_traversal_2(self):
+        root = TreeNode(1)
+        root.left = TreeNode(2)
+        result = inorder_traversal_2(root)
+        self.assertEqual(result, [2,1])
+
+        root = TreeNode(1)
+        root.left = TreeNode(2)
+        root.right = TreeNode(3)
+        root.left.left = TreeNode(4)
+        root.left.right = TreeNode(5)
+        root.right.left = TreeNode(6)
+        root.right.right = TreeNode(7)
+        root.right.left.left = TreeNode(8)
+        root.right.right.right = TreeNode(9)
+        result = inorder_traversal_2(root)
+        self.assertEqual(result, [4,2,5,1,8,6,3,7,9])
+
+        root = TreeNode(1)
+        root.right = TreeNode(2)
+        root.right.left = TreeNode(3)
+        result = inorder_traversal_2(root)
+        self.assertEqual(result, [1,3,2])
+
+        root = TreeNode(1)
+        result = inorder_traversal_2(root)
+        self.assertEqual(result, [1])
+
+        root = None
+        result = inorder_traversal_2(root)
+        self.assertEqual(result, [])
 
 
 if __name__ == '__main__':
