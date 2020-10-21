@@ -25,6 +25,7 @@ from easy_problems.delete_node_linked_list import delete_node_linked_list
 from easy_problems.reverse_linkedlist import reverse_linkedlist
 from easy_problems.fizz_buzz import fizz_buzz
 from easy_problems.majority_element import majority_element
+from easy_problems.sorted_array_to_BTS import sorted_array_to_BTS
 
 from medium_problems.subrectangle_queries import SubrectangleQueries
 from medium_problems.group_the_people import group_the_people
@@ -610,6 +611,17 @@ class TestEasyProblems(unittest.TestCase):
         nums = [3,3,4]
         result = majority_element(nums)
         self.assertEqual(result, 3)
+
+
+    def test_sorted_array_to_BTS(self):
+        nums = [-10,-3,0,5,9]
+        result = sorted_array_to_BTS(nums)
+        self.assertEqual(result.val, 0)
+        self.assertEqual(result.left.val, -3)
+        self.assertEqual(result.right.val, 9)
+        self.assertEqual(result.left.left.val, -10)
+        self.assertEqual(result.left.right, None)
+        self.assertEqual(result.right.left.val, 5)
 
 
 
