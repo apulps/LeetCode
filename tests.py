@@ -26,6 +26,7 @@ from easy_problems.reverse_linkedlist import reverse_linkedlist
 from easy_problems.fizz_buzz import fizz_buzz
 from easy_problems.majority_element import majority_element
 from easy_problems.sorted_array_to_BTS import sorted_array_to_BTS
+from easy_problems.move_zeroes import move_zeroes, move_zeroes_2
 
 from medium_problems.subrectangle_queries import SubrectangleQueries
 from medium_problems.group_the_people import group_the_people
@@ -623,6 +624,41 @@ class TestEasyProblems(unittest.TestCase):
         self.assertEqual(result.left.left.val, -10)
         self.assertEqual(result.left.right, None)
         self.assertEqual(result.right.left.val, 5)
+    
+
+    def test_move_zeroes(self):
+        nums = [0,1,0,3,12]
+        move_zeroes(nums)
+        self.assertEqual(nums, [1,3,12,0,0])
+
+        nums = [1,2,3,4,5,0,7,8,1,0,19]
+        move_zeroes(nums)
+        self.assertEqual(nums, [1,2,3,4,5,7,8,1,19,0,0])
+
+        nums = []
+        move_zeroes(nums)
+        self.assertEqual(nums, [])
+
+        nums = [0,0,1]
+        move_zeroes(nums)
+        self.assertEqual(nums, [1,0,0])
+
+    def test_move_zeroes_2(self):
+        nums = [0,1,0,3,12]
+        move_zeroes_2(nums)
+        self.assertEqual(nums, [1,3,12,0,0])
+
+        nums = [1,2,3,4,5,0,7,8,1,0,19]
+        move_zeroes_2(nums)
+        self.assertEqual(nums, [1,2,3,4,5,7,8,1,19,0,0])
+
+        nums = []
+        move_zeroes_2(nums)
+        self.assertEqual(nums, [])
+
+        nums = [0,0,1]
+        move_zeroes_2(nums)
+        self.assertEqual(nums, [1,0,0])
 
 
 
