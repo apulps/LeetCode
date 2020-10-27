@@ -14,7 +14,7 @@ class Solution:
         if not head:
             return None
     
-        if head.next == None:
+        if head.next is None:
             return head
             
         pointer = head
